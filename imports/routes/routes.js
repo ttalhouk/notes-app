@@ -31,8 +31,6 @@ export const onAuthChange = (isAuthenticated) => {
   } else if ( isAuthenticatedPage && !isAuthenticated ) {
     browserHistory.replace('/');
   }
-
-  // console.log('is loggged in? ', isAuthenticated);
 }
 
 export const routes = (
