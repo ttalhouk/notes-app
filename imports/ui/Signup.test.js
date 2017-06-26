@@ -63,10 +63,6 @@ if (Meteor.isClient) {
 
       spy.calls[0].arguments[1]();
       expect(wrapper.state('error')).toBe('');
-
     });
-
-
   });
-
 }
