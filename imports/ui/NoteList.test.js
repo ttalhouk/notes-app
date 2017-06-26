@@ -5,22 +5,7 @@ import { mount } from 'enzyme';
 
 import {NoteList} from './NoteList';
 
-const notes = [
-  {
-    _id: 'noteId1',
-    title: 'Test Note 1',
-    body: 'Test 1 body',
-    userId: 'userId1',
-    updatedAt: 1498493558790
-  },
-  {
-    _id: 'noteId2',
-    title: 'Test Note 2',
-    body: 'Test 2 body',
-    userId: 'userId2',
-    updatedAt: 1498493558790
-  }
-]
+import {notes} from '../fixtures/fixtures';
 
 if (Meteor.isClient) {
 
