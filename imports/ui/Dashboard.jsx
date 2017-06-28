@@ -8,7 +8,7 @@ import Editor from './Editor';
 export default () => {
   return(
     <div>
-      <PrivateHeader title="BoilerPlate Project Dashboard" />
+      <PrivateHeader title="Dashboard" />
       <div className="wrapper">
         <NoteList />
         <Editor />
