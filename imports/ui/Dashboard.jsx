@@ -3,6 +3,7 @@ import {Meteor} from 'meteor/meteor';
 
 import PrivateHeader from './PrivateHeader';
 import NoteList from './NoteList';
+import Editor from './Editor';
 
 export default () => {
   return(
@@ -10,6 +11,7 @@ export default () => {
       <PrivateHeader title="BoilerPlate Project Dashboard" />
       <div className="wrapper">
         <NoteList />
+        <Editor />
       </div>
     </div>
   )
