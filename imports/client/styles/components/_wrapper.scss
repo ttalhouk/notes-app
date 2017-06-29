@@ -3,10 +3,11 @@
   height: $wrapper-height;
   margin: 0 auto;
   max-width: $site-max-width;
-  padding: $space;
+  padding: $large-space $space;
   &__sidebar {
     display: flex;
     width: $wrapper-sidebar-width;
+    padding-right: $large-space;
   }
   &__main {
     display: flex;

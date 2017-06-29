@@ -8,6 +8,7 @@ $dark-grey:#777777;
 //spacing
 
 $space: 1.4rem;
+$large-space: 2.8rem;
 $site-max-width: 100rem;
 
 // body
@@ -26,7 +27,7 @@ $input-spacing: 1rem;
 
 // font sizes
 $base-font-size: 1.4rem;
-$large-font-size: 1.8rem;
+$large-font-size: 2.2rem;
 
 //button
 $button-bg: $brand-primary;
@@ -51,3 +52,6 @@ $item-text-color: $dark-grey;
 $wrapper-sidebar-width: 30rem;
 $wrapper-main-width: calc(#{$site-max-width} - #{$wrapper-sidebar-width});
 $wrapper-height: calc(100vh - #{$header-height});
+
+// fonts
+$site-font-default: Helvetica, Arial, sans-serif;
