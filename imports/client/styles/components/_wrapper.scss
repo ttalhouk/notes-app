@@ -3,14 +3,23 @@
   height: $wrapper-height;
   margin: 0 auto;
   max-width: $site-max-width;
-  padding: $large-space $space;
+  @include desktop {
+    padding: $large-space $space;
+  }
   &__sidebar {
-    display: flex;
+    display:none;
     width: $wrapper-sidebar-width;
     padding-right: $large-space;
+    @include desktop {
+      display: flex;
+    }
   }
   &__main {
     display: flex;
-    width: $wrapper-main-width;
+
+    width: 100%;
+    @include desktop {
+      width: $wrapper-main-width;
+    }
   }
 }
