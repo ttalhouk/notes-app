@@ -7,11 +7,22 @@
     padding: $large-space $space;
   }
   &__sidebar {
-    display:none;
-    width: $wrapper-sidebar-width;
-    padding-right: $large-space;
+    display: flex;
+    transition: left .3s ease-in-out;
+    width: 100vw;
+
+    position: fixed;
+    top: $header-height;
+    left: -100vw;
+    bottom: 0;
+
+
     @include desktop {
       display: flex;
+      position: static;
+      padding-right: $space;
+      width: $wrapper-sidebar-width;
+
     }
   }
   &__main {
@@ -22,4 +33,8 @@
       width: $wrapper-main-width;
     }
   }
+}
+
+.is-nav-open .wrapper__sidebar {
+  left: 0;
 }

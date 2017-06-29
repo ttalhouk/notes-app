@@ -9,6 +9,13 @@
     margin: 0 auto;
     max-width: $site-max-width;
     padding: $space;
+    img {
+      cursor: pointer;
+      height: 35px;
+      @include desktop {
+        display: none;
+      }
+    }
 
   }
   &__brand {
