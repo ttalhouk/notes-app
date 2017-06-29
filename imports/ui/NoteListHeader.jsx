@@ -7,7 +7,7 @@ import {Notes} from '../api/notes';
 
 export const NoteListHeader = (props) => {
   return (
-    <div>
+    <div className="item-list__header">
       <button
         className="button"
         onClick={() => {

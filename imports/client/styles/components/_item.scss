@@ -4,25 +4,47 @@
   border: $boxed-view-border;
   overflow-y: scroll;
   width: 100%;
+  &__header {
+    display: flex;
+    flex-direction: column;
+    padding: $space;
+  }
 }
 
 
 
 // item
 .item {
-  background-color: $item-bg;
-  border: 1px solid $item-border;
-  margin-bottom: $space;
-  padding: $space;
-  &__message {
-    color: $item-text-color;
+  border-left: $item-border-width solid transparent;
+  cursor: pointer;
+  padding:$space;
+  transition: background-color .3s ease, border .3s ease;
+  &:hover {
+    background-color: $light-grey;
+    border-left: $item-border-width solid $grey;
   }
-  &__status-message {
-    text-align: center;
-    font-style: italic;
+  &__title {
+    font-weight: normal;
+    font-size: $base-font-size;
+    margin-bottom: .4rem;
+  }
+  &__subtitle {
+    color: $dark-grey;
     margin: 0;
   }
-  &__actions {
-
+}
+.item--selected, .item--selected:hover {
+  background-color: $light-grey;
+  border-left: $item-border-width solid $brand-primary;
+  .item__title{
+    font-weight: bold;
   }
+}
+
+// empty item
+
+.empty-item {
+  font-style: italic;
+  padding: $space;
+  text-align: center;
 }
