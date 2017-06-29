@@ -7,11 +7,15 @@ import Editor from './Editor';
 
 export default () => {
   return(
-    <div>
+    <div className="item-list">
       <PrivateHeader title="Dashboard" />
       <div className="wrapper">
-        <NoteList />
-        <Editor />
+        <div className="wrapper__sidebar">
+          <NoteList />
+        </div>
+        <div className="wrapper__main">
+          <Editor />
+        </div>
       </div>
     </div>
   )

@@ -1,5 +1,15 @@
 .wrapper {
+  display: flex;
+  height: $wrapper-height;
   margin: 0 auto;
-  padding: $space;
   max-width: $site-max-width;
+  padding: $space;
+  &__sidebar {
+    display: flex;
+    width: $wrapper-sidebar-width;
+  }
+  &__main {
+    display: flex;
+    width: $wrapper-main-width;
+  }
 }

@@ -1,18 +1,24 @@
 //colors
 
 $grey: #dddddd;
-$purple: #5b4681;
+$brand-primary: #397ab1;
 $light-grey: #f9f9f9;
 $dark-grey:#777777;
 
 //spacing
 
 $space: 1.4rem;
-$site-max-width: 78rem;
+$site-max-width: 100rem;
+
+// body
+
+$body-bg-color: #fafafa;
+$body-default-color: #333333;
 
 // boxed-view
 $boxed-view-overlay-bg:$grey;
 $boxed-view-bg: white;
+$boxed-view-border: 1px solid $grey;
 
 //form inputs
 $input-border-color: $grey;
@@ -23,18 +29,25 @@ $base-font-size: 1.4rem;
 $large-font-size: 1.8rem;
 
 //button
-$button-bg: $purple;
+$button-bg: $brand-primary;
 $button-color: white;
-$buttton-pill-color: $purple;
+$buttton-pill-color: $brand-primary;
 $button-secondary-color: $dark-grey;
 $button-secondary-border: $grey;
 $button-secondary-bg: $light-grey;
 
 //header
-$header-bg: $purple;
+$header-bg: $brand-primary;
 $header-color: white;
+$header-height: 6rem;
 
 // list items
 $item-bg: $light-grey;
 $item-border: darken($item-bg, 8%);
 $item-text-color: $dark-grey;
+
+// wrapper
+
+$wrapper-sidebar-width: 30rem;
+$wrapper-main-width: calc(#{$site-max-width} - #{$wrapper-sidebar-width});
+$wrapper-height: calc(100vh - #{$header-height});

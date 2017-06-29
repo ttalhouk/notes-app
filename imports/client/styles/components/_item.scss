@@ -1,3 +1,14 @@
+// item list
+.item-list {
+  background-color: white;
+  border: $boxed-view-border;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+
+
+// item
 .item {
   background-color: $item-bg;
   border: 1px solid $item-border;
