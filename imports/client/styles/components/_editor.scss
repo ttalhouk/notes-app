@@ -3,6 +3,7 @@
   border: $boxed-view-border;
   display: flex;
   flex-direction: column;
+  min-height: 40rem;
   padding: $large-space;
   width: 100%;
   &__title {
@@ -14,7 +15,7 @@
     padding: $input-spacing;
   }
   &__body {
-    flex: 1;
+    flex: 1 0;
     font-weight: 300;
     margin-bottom: $large-space;
     outline: none;
