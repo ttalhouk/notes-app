@@ -9,20 +9,20 @@
     flex-direction: column;
     padding: $space;
     button {
-      margin-bottom: 0;
+      @include form-margin-fix;
     }
   }
   -webkit-overflow-scrolling: touch;
   &__search {
     display: flex;
-    padding: 0 $space;
+    padding: $space;
     text-align: center;
     input {
       flex: 1;
-      margin-bottom: 0
+      @include form-margin-fix;
     }
     button {
-      margin-bottom: 0
+      @include form-margin-fix;
     }
   }
 }

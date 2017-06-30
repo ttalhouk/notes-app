@@ -8,6 +8,11 @@
   margin-bottom: $space;
   padding: $input-spacing;
   text-transform: uppercase;
+  transition: background-color .3s ease;
+
+  &:active {
+    background-color: lighten($button-bg, 20%);
+  }
 
   &--link {
     display: inline-block;

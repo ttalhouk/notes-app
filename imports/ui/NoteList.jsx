@@ -33,7 +33,7 @@ export class NoteList extends React.Component {
   }
 
   renderNotes() {
-    return this.props.notes
+    const result = this.props.notes
       .filter((note) => {
         if (note.title.indexOf(this.state.searchTerm) !== -1) {
           return note
@@ -44,6 +44,15 @@ export class NoteList extends React.Component {
           <NoteListItem key={note._id} note={note} />
         );
       });
+
+    if (result.length === 0) {
+      result.push(
+        <p key='0' className="empty-item">
+          No notes with that title found.
+        </p>
+      );
+    }
+    return result;
 
   }
 

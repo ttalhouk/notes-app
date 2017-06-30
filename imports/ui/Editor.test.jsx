@@ -17,33 +17,35 @@ if (Meteor.isClient) {
       browserHistory = {
         replace: expect.createSpy()
       }
+      confirm = expect.createSpy().andReturn(true);
     });
 
     it('should render pick note message', function() {
-      const wrapper = mount(<Editor browserHistory={browserHistory} call={call} />);
+      const wrapper = mount(<Editor confirm={confirm} browserHistory={browserHistory} call={call} />);
 
       expect(wrapper.find('p').text()).toBe('Pick or Create a note to get started.');
     });
 
     it('should render note not found', function() {
       const selectedNoteId = 'notANote';
-      const wrapper = mount(<Editor browserHistory={browserHistory} call={call} selectedNoteId={selectedNoteId}/>);
+      const wrapper = mount(<Editor browserHistory={browserHistory} call={call} selectedNoteId={selectedNoteId} confirm={confirm}/>);
 
       expect(wrapper.find('p').text()).toBe('Note not found')
     });
 
     it('should delete selected note', function() {
-      const wrapper = mount(<Editor browserHistory={browserHistory} call={call} selectedNoteId={notes[0]._id} note={notes[0]}/>);
+      const wrapper = mount(<Editor browserHistory={browserHistory} call={call} selectedNoteId={notes[0]._id} note={notes[0]} confirm={confirm}/>);
 
       const button = wrapper.find('button');
       button.simulate('click');
+      console.log(confirm.calls[0]);
       expect(call).toHaveBeenCalledWith('notes.remove', notes[0]._id);
       expect(browserHistory.replace).toHaveBeenCalledWith('/dashboard');
     });
 
     it('should update selected note body', function() {
       let newBody = 'New body text';
-      const wrapper = mount(<Editor browserHistory={browserHistory} call={call} selectedNoteId={notes[0]._id} note={notes[0]}/>);
+      const wrapper = mount(<Editor browserHistory={browserHistory} call={call} selectedNoteId={notes[0]._id} note={notes[0]} confirm={confirm}/>);
 
       const textArea = wrapper.find('textarea');
       textArea.simulate('change', {
@@ -58,7 +60,7 @@ if (Meteor.isClient) {
 
     it('should update selected note title', function() {
       let newTitle = 'New title text';
-      const wrapper = mount(<Editor browserHistory={browserHistory} call={call} selectedNoteId={notes[0]._id} note={notes[0]}/>);
+      const wrapper = mount(<Editor confirm={confirm} browserHistory={browserHistory} call={call} selectedNoteId={notes[0]._id} note={notes[0]}/>);
 
       const input = wrapper.find('input');
       input.simulate('change', {
@@ -73,7 +75,7 @@ if (Meteor.isClient) {
 
     it('should set state for new selected note', function(){
       let note = notes[0];
-      const wrapper = mount(<Editor browserHistory={browserHistory} call={call} />);
+      const wrapper = mount(<Editor confirm={confirm} browserHistory={browserHistory} call={call} />);
 
       wrapper.setProps({
         selectedNoteId: note._id,
@@ -86,7 +88,7 @@ if (Meteor.isClient) {
 
     it('should not set state if note prop not provided', function(){
       let note = notes[0];
-      const wrapper = mount(<Editor browserHistory={browserHistory} call={call} />);
+      const wrapper = mount(<Editor confirm={confirm} browserHistory={browserHistory} call={call} />);
 
       wrapper.setProps({
         selectedNoteId: note._id,

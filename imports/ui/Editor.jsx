@@ -38,8 +38,10 @@ export class Editor extends React.Component {
     this.props.call('notes.update', this.props.note._id, {title})
   }
   handleDeleteNote() {
-    this.props.call('notes.remove', this.props.note._id);
-    this.props.browserHistory.replace('/dashboard');
+    if(this.props.confirm(`Delete ${this.state.title ? this.state.title : 'the note' }?`)){
+      this.props.call('notes.remove', this.props.note._id);
+      this.props.browserHistory.replace('/dashboard');
+    }
   }
   render () {
     if (this.props.note) {
@@ -81,7 +83,8 @@ Editor.propTypes = {
   selectedNoteId: PropTypes.string,
   note: PropTypes.object,
   call: PropTypes.func.isRequired,
-  browserHistory: PropTypes.object.isRequired
+  browserHistory: PropTypes.object.isRequired,
+  confirm: PropTypes.func.isRequired
 }
 
 export default createContainer(() => {
@@ -91,6 +94,7 @@ export default createContainer(() => {
     selectedNoteId,
     note: Notes.findOne(selectedNoteId),
     call: Meteor.call,
-    browserHistory
+    browserHistory,
+    confirm: confirm()
   }
 }, Editor);
