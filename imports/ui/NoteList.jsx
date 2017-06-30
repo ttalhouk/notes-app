@@ -45,7 +45,7 @@ export class NoteList extends React.Component {
         );
       });
 
-    if (result.length === 0) {
+    if (result.length === 0 && this.props.notes.length > 0) {
       result.push(
         <p key='0' className="empty-item">
           No notes with that title found.
