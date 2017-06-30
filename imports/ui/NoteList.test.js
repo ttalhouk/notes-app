@@ -24,5 +24,15 @@ if (Meteor.isClient) {
       expect(wrapper.find('NoteListItem').length).toBe(0);
       expect(wrapper.find('NoteListEmptyItem').length).toBe(1);
     });
+
+    it('should filter notes by input field', function() {
+      const wrapper = mount(<NoteList notes={notes} />);
+      wrapper.find('input').simulate('change', {
+        target: {
+          value: 'note'
+        }
+      });
+      expect(wrapper.state('searchTerm')).toBe('note');
+    })
   });
 }
