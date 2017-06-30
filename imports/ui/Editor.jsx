@@ -38,7 +38,7 @@ export class Editor extends React.Component {
     this.props.call('notes.update', this.props.note._id, {title})
   }
   handleDeleteNote() {
-    if(this.props.confirm(`Delete ${this.state.title ? this.state.title : 'the note' }?`)){
+    if(confirm(`Delete ${this.state.title ? this.state.title : 'the note' }?`)){
       this.props.call('notes.remove', this.props.note._id);
       this.props.browserHistory.replace('/dashboard');
     }
@@ -60,7 +60,7 @@ export class Editor extends React.Component {
           <div>
             <button
               className="button button--secondary"
-              onClick={this.handleDeleteNote.bind(this)}>
+              onClick={() => this.handleDeleteNote()}>
               Delete Note
             </button>
           </div>
@@ -95,6 +95,6 @@ export default createContainer(() => {
     note: Notes.findOne(selectedNoteId),
     call: Meteor.call,
     browserHistory,
-    confirm: confirm()
+    confirm: confirm
   }
 }, Editor);

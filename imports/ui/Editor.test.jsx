@@ -38,7 +38,6 @@ if (Meteor.isClient) {
 
       const button = wrapper.find('button');
       button.simulate('click');
-      console.log(confirm.calls[0]);
       expect(call).toHaveBeenCalledWith('notes.remove', notes[0]._id);
       expect(browserHistory.replace).toHaveBeenCalledWith('/dashboard');
     });
