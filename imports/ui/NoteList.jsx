@@ -9,19 +9,74 @@ import NoteListHeader from './NoteListHeader';
 import NoteListItem from './NoteListItem';
 import NoteListEmptyItem from './NoteListEmptyItem';
 
-export const NoteList = (props) => {
-  return (
-    <div className="item-list">
-      <NoteListHeader />
-      { props.notes.length > 0 ? undefined : <NoteListEmptyItem />}
-      {props.notes.map((note) => {
+// export const NoteList = (props) => {
+//   return (
+//     <div className="item-list">
+//       <NoteListHeader />
+//       { props.notes.length > 0 ? undefined : <NoteListEmptyItem />}
+//       { props.notes.map((note) => {
+//         return (
+//           <NoteListItem key={note._id} note={note} />
+//         );
+//       })}
+//     </div>
+//   );
+// };
+
+
+export class NoteList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: ''
+    }
+  }
+
+  renderNotes() {
+    return this.props.notes
+      .filter((note) => {
+        if (note.title.indexOf(this.state.searchTerm) !== -1) {
+          return note
+        };
+      })
+      .map((note) => {
         return (
           <NoteListItem key={note._id} note={note} />
         );
-      })}
-    </div>
-  );
-};
+      });
+
+  }
+
+  handleSearchTermChange(e) {
+    let searchTerm = e.target.value;
+    this.setState({searchTerm});
+  }
+
+  clearSearch() {
+    this.setState({searchTerm: ''});
+  }
+
+  render () {
+    return (
+      <div className="item-list">
+        <NoteListHeader />
+        <div className="item-list__search">
+          <input
+            type='search'
+            placeholder="Search for a note"
+            onChange={this.handleSearchTermChange.bind(this)} value={this.state.searchTerm} />
+          <button
+            onClick={this.clearSearch.bind(this)}
+            className="button button--secondary">
+            Clear
+          </button>
+        </div>
+        { this.props.notes.length > 0 ? undefined : <NoteListEmptyItem />}
+        { this.renderNotes() }
+      </div>
+    )
+  }
+}
 
 NoteList.propTypes = {
   notes: PropTypes.array.isRequired

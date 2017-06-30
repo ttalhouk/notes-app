@@ -6,7 +6,6 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 export const NoteListItem = (props) => {
   const className =  props.note.selected ? 'item item--selected' : 'item';
-
   return (
     <div
       className={className}

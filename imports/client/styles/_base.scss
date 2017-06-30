@@ -33,7 +33,7 @@ p {
   margin-bottom: $space;
 }
 
-input[type=text], input[type=email], input[type=password], textarea {
+input[type=text],input[type=search], input[type=email], input[type=password], textarea {
   border:1px solid $input-border-color;
   color: $body-default-color;
   font-family: $site-font-default;
