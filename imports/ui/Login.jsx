@@ -11,6 +11,7 @@ export class Login extends React.Component {
       error: ''
     };
   }
+
   submitForm(e) {
     e.preventDefault();
 
@@ -25,6 +26,15 @@ export class Login extends React.Component {
       }
     })
 
+  }
+  fbLogin(e) {
+    e.preventDefault();
+    Meteor.loginWithFacebook({requestPermissions: ['public_profile', 'email']}, (err) => {
+      if (err) {
+        console.log(err);
+        this.setState({error: 'Unable to login with facebook.'});
+      }
+    });
   }
   render () {
     return(
@@ -42,6 +52,10 @@ export class Login extends React.Component {
             <input type="password" ref="password" name="password" placeholder="Password" />
             <button className="button">Login</button>
           </form>
+          <button
+            className='button button--facebook'
+            onClick={this.fbLogin.bind(this)}>
+          </button>
           <Link to="/signup">Need an Account?</Link>
         </div>
       </div>
