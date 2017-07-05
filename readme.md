@@ -25,3 +25,10 @@ To run the unit tests run the following command and view on localhost:3000
 ```
 meteor npm test
 ```
+## Potential Features to Add
+
+* ~~Add facebook login~~
+* Download note
+* Speach Recognition for body field
+* Email note
+* Delete from list component (swipping or button)
