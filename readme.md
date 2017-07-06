@@ -27,6 +27,8 @@ meteor npm test
 ```
 ## Potential Features to Add
 
+* ~~Search Notes~~
+* ~~Add delete Confirmation~~
 * ~~Add facebook login~~
 * Download note
 * Speach Recognition for body field
