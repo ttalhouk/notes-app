@@ -7,6 +7,7 @@ import {Notes} from '../api/notes';
 
 import FlipMove from 'react-flip-move';
 
+
 import NoteListHeader from './NoteListHeader';
 import NoteListItem from './NoteListItem';
 import NoteListEmptyItem from './NoteListEmptyItem';

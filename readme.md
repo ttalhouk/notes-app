@@ -34,4 +34,4 @@ meteor npm test
 * Download note
 * Speach Recognition for body field
 * Email note
-* Delete from list component (swipping or button)
+* ~~Delete from list component (swipping or button)~~

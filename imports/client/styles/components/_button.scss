@@ -21,6 +21,17 @@
     background-color: lighten($button-bg, 10%);
   }
 
+  &--cancel{
+    background-color: $button-bg;
+    color: $button-color;
+  }
+
+  &--delete {
+    background-color: #e33d43;
+    color: white;
+  }
+
+
   &--link {
     display: inline-block;
     text-decoration: none;
@@ -55,5 +66,10 @@
     padding:0;
     text-decoration: underline;
     text-transform: none;
+  }
+  &__slide {
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
   }
 }
