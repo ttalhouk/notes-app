@@ -30,6 +30,7 @@ meteor npm test
 * ~~Search Notes~~
 * ~~Add delete Confirmation~~
 * ~~Add facebook login~~
+* ~~Add clipboard copy of note~~
 * Download note
 * Speach Recognition for body field
 * Email note
