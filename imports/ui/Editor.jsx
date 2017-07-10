@@ -5,13 +5,15 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Session } from 'meteor/session';
 import { Notes } from '../api/notes';
 import { Meteor } from 'meteor/meteor';
+import Clipboard from 'clipboard';
 
 export class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
-      body: ''
+      body: '',
+      copied: false
     }
   }
 
@@ -22,7 +24,8 @@ export class Editor extends React.Component {
     if (currentNoteId && currentNoteId !== prevNoteId) {
       this.setState({
         title: this.props.note.title,
-        body: this.props.note.body
+        body: this.props.note.body,
+        copying: false
       })
     };
   }
@@ -32,6 +35,7 @@ export class Editor extends React.Component {
     this.setState({body});
     this.props.call('notes.update', this.props.note._id, {body})
   }
+
   handleTitleChange(e) {
     let title = e.target.value;
     this.setState({title});
@@ -43,6 +47,23 @@ export class Editor extends React.Component {
       this.props.browserHistory.replace('/dashboard');
     }
   }
+
+  componentDidMount() {
+    this.clipboard = new Clipboard('#copy');
+    this.clipboard.on('success', () => {
+      this.setState({copied: true});
+      setTimeout(() => {
+        this.setState({copied: false})
+      }, 1000);
+    }).on('error', () => {
+      alert('Could not copy link. Please copy manually.');
+    })
+  }
+
+  componentWillUnmount() {
+    this.clipboard.destroy();
+  }
+
   render () {
     if (this.props.note) {
       return (
@@ -57,7 +78,14 @@ export class Editor extends React.Component {
             placeholder="Note details"
             className="editor__body"
             onChange={this.handleBodyChange.bind(this)}></textarea>
-          <div>
+          <div className='button__group'>
+            <button
+              id='copy'
+              className="button button--copy"
+              data-clipboard-text={this.state.body}
+              >
+              {this.state.copied ? 'Copied...' : 'Copy Text'}
+            </button>
             <button
               className="button button--secondary"
               onClick={() => this.handleDeleteNote()}>
