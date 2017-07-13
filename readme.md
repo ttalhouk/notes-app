@@ -31,6 +31,7 @@ meteor npm test
 * ~~Add delete Confirmation~~
 * ~~Add facebook login~~
 * ~~Add clipboard copy of note~~
+* ~~Add facebook Avatar to Desktop View~~
 * Download note
 * Speach Recognition for body field
 * Email note
