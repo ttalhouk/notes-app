@@ -21,6 +21,16 @@ export const userSchemaValidation = (user) => {
 }
 
 if (Meteor.isServer){
+  Meteor.publish('userInfo', function () {
+    if (this.userId) {
+      let currentUser = Meteor.users.find({ _id: this.userId },{
+        fields: { "services.facebook.id": 1 }
+      });
+      return currentUser;
+    } else {
+      this.ready();
+    }
+  });
 
   Accounts.onCreateUser(function(options, user) {
     if (user.services) {

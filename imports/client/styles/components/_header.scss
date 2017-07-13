@@ -9,14 +9,30 @@
     margin: 0 auto;
     max-width: $site-max-width;
     padding: $space;
-    img {
+    .note--toggle {
       cursor: pointer;
       height: 35px;
       @include desktop {
         display: none;
       }
     }
-
+  }
+  .header--controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header--user-image {
+    display: none;
+    @include desktop {
+      display: inline-block;
+      border-radius: 50%;
+      box-shadow: 0 0 8px 2px darken($header-bg, 20%);
+      // box-shadow: 0 0 8px 2px white;
+      height: 40px;
+      width: 40px;
+      margin-right: $space;
+    }
   }
   &__brand {
     font-weight: 300;
