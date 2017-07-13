@@ -7,7 +7,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import Swipeout from 'rc-swipeout';
-import 'rc-swipeout/assets/index.css';
+// import 'rc-swipeout/assets/index.css';
 
 export class NoteListItem extends React.Component {
   handleDeleteNote() {
@@ -19,30 +19,36 @@ export class NoteListItem extends React.Component {
       }
     }
   }
+  handleSlideOpen() {
+    // future addon adjust button sizes on open
+    // console.log(this.refs.swipe);
+
+    return;
+  }
 
   render () {
     const className =  this.props.note.selected ? 'item item--selected' : 'item';
     return (
       <Swipeout
+        ref="swipe"
         left={[]}
         right={[
           {
             text: 'Del',
             onPress:() => this.handleDeleteNote(),
-            style: { padding: '0 16px' },
+            style: { },
             className: 'button--delete button__slide'
           },
           {
             text: 'Rtn',
-            // onPress:() => console.log('close'),
-            style: { padding: '0 16px' },
+            style: { },
             className: 'button--cancel button__slide'
           }
 
         ]}
         autoClose={true}
-        onOpen={() => console.log('open')}
-        onClose={() => console.log('close')}
+        onOpen={() => this.handleSlideOpen(this)}
+        onClose={() => {return}}
       >
         <div
           className={className}
