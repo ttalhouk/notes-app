@@ -33,6 +33,5 @@ meteor npm test
 * ~~Add clipboard copy of note~~
 * ~~Add facebook Avatar to Desktop View~~
 * Download note
-* Speach Recognition for body field
 * Email note
 * ~~Delete from list component (swipping or button)~~
